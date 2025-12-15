@@ -1,17 +1,18 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para ti</title>
+<title>Para ti, mi amor</title>
 
 <style>
 body {
   margin: 0;
   padding: 0;
+  min-height: 200vh;
   font-family: Georgia, serif;
-  background: linear-gradient(#050b1e, #000);
   color: white;
+  background: radial-gradient(circle at top, #0b1d3a, #000);
 }
 
 .contenedor {
@@ -25,7 +26,7 @@ body {
 .flor {
   position: fixed;
   width: 150px;
-  opacity: 0.2;
+  opacity: 0.18;
 }
 
 #rosas {
@@ -35,91 +36,6 @@ body {
 
 #lirios {
   bottom: 10%;
-  right: -30px;
-}
+  right: -
 
-#anillo {
-  opacity: 0;
-  text-align: center;
-  margin-top: 120px;
-  transition: opacity 2s;
-}
 
-#anillo img {
-  width: 150px;
-}
-</style>
-</head>
-
-<body>
-
-<img src="imagenes/rosas.png" class="flor" id="rosas">
-<img src="imagenes/lirios.png" class="flor" id="lirios">
-
-<audio id="musica" loop>
-  <source src="musica/old_enough.mp3" type="audio/mpeg">
-</audio>
-
-<div class="contenedor">
-
-<p>
-Eres la esencia de mis días,<br>
-la respiración que mi alma busca cuando el mundo pesa,<br>
-el agua que calma mi vida cuando todo arde,<br>
-la voz suave que Dios puso en mi camino<br>
-para recordarme que el amor también puede ser luz.
-</p>
-
-<p>
-En ti entiendo la naturaleza:<br>
-que el sol no nace para sí mismo,<br>
-que los ríos no corren sin destino,<br>
-que las raíces solo se aferran donde encuentran paz.<br>
-Así soy contigo:<br>
-un corazón que por fin encontró dónde quedarse.
-</p>
-
-<p>
-Te amo mucho, mucho, muchísimo, mi amor.
-</p>
-
-<p>
-“Mujer virtuosa, ¿quién la hallará?
-Porque su estima sobrepasa largamente a las piedras preciosas”
-(Proverbios 31:10).
-</p>
-
-<p>
-<div id="anillo">
-  <img src="imagenes/anillo.png">
-  <p>¿Caminamos juntos para siempre?</p>
-</div>
-</p>
-
-</div>
-
-<script>
-const musica = document.getElementById("musica");
-const anillo = document.getElementById("anillo");
-let iniciado = false;
-
-function iniciar() {
-  if (!iniciado) {
-    musica.volume = 0.4;
-    musica.play();
-    iniciado = true;
-  }
-}
-
-document.addEventListener("click", iniciar);
-document.addEventListener("touchstart", iniciar);
-
-window.addEventListener("scroll", () => {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
-    anillo.style.opacity = 1;
-  }
-});
-</script>
-
-</body>
-</html>
