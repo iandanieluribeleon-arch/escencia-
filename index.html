@@ -1,36 +1,17 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para ti, mi amor</title>
+<title>Para ti</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
-
 body {
   margin: 0;
   padding: 0;
-  min-height: 200vh;
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, serif;
+  background: linear-gradient(#050b1e, #000);
   color: white;
-  background: radial-gradient(circle at top, #0b1d3a, #000);
-  overflow-x: hidden;
-}
-
-.estrellas {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url("https://i.imgur.com/9QeK0YF.png");
-  animation: moverEstrellas 120s linear infinite;
-  z-index: -1;
-  opacity: 0.6;
-}
-
-@keyframes moverEstrellas {
-  from { background-position: 0 0; }
-  to { background-position: 10000px 5000px; }
 }
 
 .contenedor {
@@ -43,57 +24,44 @@ body {
 
 .flor {
   position: fixed;
-  width: 180px;
-  opacity: 0.15;
-  animation: flotar 20s ease-in-out infinite;
+  width: 150px;
+  opacity: 0.2;
 }
 
-.rosas {
+#rosas {
   top: 10%;
-  left: -40px;
+  left: -30px;
 }
 
-.lirios {
+#lirios {
   bottom: 10%;
-  right: -40px;
-  animation-delay: 5s;
+  right: -30px;
 }
 
-@keyframes flotar {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-30px); }
-  100% { transform: translateY(0px); }
-}
-
-.anillo {
+#anillo {
   opacity: 0;
-  margin-top: 120px;
   text-align: center;
-  transition: opacity 3s ease;
+  margin-top: 120px;
+  transition: opacity 2s;
 }
 
-.anillo img {
-  width: 160px;
-}
-
-.anillo.mostrar {
-  opacity: 1;
+#anillo img {
+  width: 150px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="estrellas"></div>
-
-<img src="imagenes/rosas.png" class="flor rosas">
-<img src="imagenes/lirios.png" class="flor lirios">
+<img src="imagenes/rosas.png" class="flor" id="rosas">
+<img src="imagenes/lirios.png" class="flor" id="lirios">
 
 <audio id="musica" loop>
   <source src="musica/old_enough.mp3" type="audio/mpeg">
 </audio>
 
 <div class="contenedor">
+
 <p>
 Eres la esencia de mis días,<br>
 la respiración que mi alma busca cuando el mundo pesa,<br>
@@ -112,71 +80,46 @@ un corazón que por fin encontró dónde quedarse.
 </p>
 
 <p>
-Te amo mucho, mucho, muchísimo, mi amor.<br>
-Eres el amor de mi vida,<br>
-la mano que quiero sostener incluso cuando tiemblen mis pasos,<br>
-la mirada que quiero buscar cada amanecer.
+Te amo mucho, mucho, muchísimo, mi amor.
 </p>
 
 <p>
-“Mujer virtuosa, ¿quién la hallará?<br>
-Porque su estima sobrepasa largamente a las piedras preciosas” (Proverbios 31:10).<br>
-Y yo te encontré a ti… mi tesoro, mi bendición, mi propósito.
+“Mujer virtuosa, ¿quién la hallará?
+Porque su estima sobrepasa largamente a las piedras preciosas”
+(Proverbios 31:10).
 </p>
 
 <p>
-Encomendamos nuestras almas a Dios,<br>
-porque Él es quien une lo que el mundo no puede separar:<br>
-“Y serán una sola carne… lo que Dios unió, que no lo separe el hombre” (Mateo 19:5-6).
-</p>
-
-<p>
-Quiero caminar contigo todos los días que me queden,<br>
-cuidarte con la paciencia del viento,<br>
-amarte con la firmeza de la montaña,<br>
-y abrazarte como quien encuentra por fin su hogar.
-</p>
-
-<p>
-Porque tú, mi amor,<br>
-eres la esencia que sostiene mi alma,<br>
-la vida que Dios puso en mis manos,<br>
-y la eternidad que quiero compartir contigo.
-</p>
-
-<div id="anillo" class="anillo">
-  <img src="imagenes/anillo.png" alt="Anillo">
+<div id="anillo">
+  <img src="imagenes/anillo.png">
   <p>¿Caminamos juntos para siempre?</p>
 </div>
+</p>
+
 </div>
 
 <script>
 const musica = document.getElementById("musica");
 const anillo = document.getElementById("anillo");
-let musicaIniciada = false;
+let iniciado = false;
 
-function iniciarMusica() {
-  if (!musicaIniciada) {
-    musica.volume = 0.35;
+function iniciar() {
+  if (!iniciado) {
+    musica.volume = 0.4;
     musica.play();
-    musicaIniciada = true;
+    iniciado = true;
   }
 }
 
-document.addEventListener("click", iniciarMusica);
-document.addEventListener("touchstart", iniciarMusica);
-document.addEventListener("scroll", iniciarMusica);
+document.addEventListener("click", iniciar);
+document.addEventListener("touchstart", iniciar);
 
 window.addEventListener("scroll", () => {
-  const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollActual = window.scrollY;
-
-  if (scrollActual >= scrollTotal - 50) {
-    anillo.classList.add("mostrar");
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+    anillo.style.opacity = 1;
   }
 });
 </script>
 
 </body>
 </html>
-
