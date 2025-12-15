@@ -36,6 +36,90 @@ body {
 
 #lirios {
   bottom: 10%;
-  right: -
+  right: -30px;
+}
 
+#anillo {
+  opacity: 0;
+  text-align: center;
+  margin-top: 120px;
+  transition: opacity 3s ease;
+}
 
+#anillo img {
+  width: 150px;
+}
+</style>
+</head>
+
+<body>
+
+<img src="imagenes/rosas.png" class="flor" id="rosas">
+<img src="imagenes/lirios.png" class="flor" id="lirios">
+
+<audio id="musica" loop>
+  <source src="musica/old_enough.mp3" type="audio/mpeg">
+</audio>
+
+<div class="contenedor">
+
+<p>
+Eres la esencia de mis días,<br>
+la respiración que mi alma busca cuando el mundo pesa,<br>
+el agua que calma mi vida cuando todo arde,<br>
+la voz suave que Dios puso en mi camino<br>
+para recordarme que el amor también puede ser luz.
+</p>
+
+<p>
+En ti entiendo la naturaleza:<br>
+que el sol no nace para sí mismo,<br>
+que los ríos no corren sin destino,<br>
+que las raíces solo se aferran donde encuentran paz.<br>
+Así soy contigo:<br>
+un corazón que por fin encontró dónde quedarse.
+</p>
+
+<p>
+Te amo mucho, mucho, muchísimo, mi amor.<br>
+Eres el amor de mi vida.
+</p>
+
+<p>
+“Mujer virtuosa, ¿quién la hallará?<br>
+Porque su estima sobrepasa largamente a las piedras preciosas”
+(Proverbios 31:10).
+</p>
+
+<div id="anillo">
+  <img src="imagenes/anillo.png">
+  <p>¿Caminamos juntos para siempre?</p>
+</div>
+
+</div>
+
+<script>
+const musica = document.getElementById("musica");
+const anillo = document.getElementById("anillo");
+let iniciado = false;
+
+function iniciarMusica() {
+  if (!iniciado) {
+    musica.volume = 0.35;
+    musica.play();
+    iniciado = true;
+  }
+}
+
+document.addEventListener("click", iniciarMusica);
+document.addEventListener("touchstart", iniciarMusica);
+
+window.addEventListener("scroll", () => {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+    anillo.style.opacity = 1;
+  }
+});
+</script>
+
+</body>
+</html>
